@@ -1,0 +1,16 @@
+---
+- name: deploy on docker server
+  hosts: docker
+  become: true
+  tasks: 
+    - name: stop previous version docker
+      shell: docker stop mrs_demo
+
+    - name: remove stopped container
+      shell: docker rm -f mrs_demo
+    
+    - name: remove docker images
+      shell: docker image rm -f mrs_demo
+
+    - name: create docker image
+      shell: docker run -d --name mrs_demo -p 8080:8080 mrs_demo
