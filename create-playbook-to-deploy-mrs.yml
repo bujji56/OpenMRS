@@ -13,4 +13,4 @@
       shell: docker image rm -f mrs_demo
 
     - name: create docker image
-      shell: docker run -d --name mrs_demo -p 8080:8080 mrs_demo
+      shell: docker run -d --name mrs_demo -p 8080:8080 lathifa/mrs_demo
